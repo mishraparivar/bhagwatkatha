@@ -55,6 +55,7 @@ a:hover {
 .container {
   width: min(1140px, 92vw);
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* Floral borders */
@@ -162,11 +163,23 @@ a:hover {
 .hero-bg {
   position: absolute;
   inset: 0;
+  overflow: hidden;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(156, 39, 176, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 20%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
-    linear-gradient(180deg, var(--white) 0%, var(--purple-pale) 100%);
+    linear-gradient(180deg, rgba(255, 254, 249, 0.65) 0%, rgba(243, 229, 245, 0.9) 100%);
   z-index: -1;
+}
+
+.hero-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.65;
+  filter: brightness(0.95) contrast(1.03);
 }
 
 .hero-mantra {
@@ -713,11 +726,22 @@ a:hover {
     grid-template-columns: 1fr;
     text-align: center;
     min-height: auto;
-    padding-top: 3rem;
+    padding: 3rem 1rem 2rem;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
   }
 
   .hero-meta {
     justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .meta-card {
+    flex: 1 1 100%;
+    min-width: 0;
   }
 
   .hero-image {
@@ -740,6 +764,18 @@ a:hover {
     max-width: 400px;
     margin: 0 auto;
   }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .venue-map iframe {
+    height: 320px;
+  }
+
+  .contact-card {
+    padding: 1.5rem 1rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -749,13 +785,13 @@ a:hover {
 
   .nav-links {
     position: fixed;
-    top: 60px;
+    top: 56px;
     left: 0;
     right: 0;
     background: var(--white);
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 1rem;
+    padding: 1.25rem 1rem;
+    gap: 0.9rem;
     box-shadow: var(--shadow);
     transform: translateY(-120%);
     opacity: 0;
@@ -769,7 +805,63 @@ a:hover {
     pointer-events: auto;
   }
 
+  .nav-links a {
+    font-size: 1rem;
+  }
+
   .schedule-card.featured {
     grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 0.75rem 0;
+  }
+
+  .nav-brand {
+    font-size: 0.95rem;
+  }
+
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 11vw, 2.8rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .section-header {
+    padding: 0 0.5rem;
+  }
+
+  .section-header h2,
+  .section-header h1 {
+    line-height: 1.2;
+  }
+
+  .schedule-date {
+    min-width: 70px;
+    padding: 1rem 0.75rem;
+  }
+
+  .schedule-body {
+    padding: 1rem;
+  }
+
+  .venue-map iframe {
+    height: 260px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 }
